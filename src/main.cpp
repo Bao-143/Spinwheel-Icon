@@ -5,25 +5,18 @@ using namespace geode::prelude;
 
 class $modify(SpinPlayer, PlayerObject) {
     struct Fields {
-        float spin = 0.f;
+        float spinOffset = 0.f;
     };
 
     void update(float dt) {
         PlayerObject::update(dt);
 
-        auto& self = m_fields;
-        self->spin += 360.f * dt;
+        m_fields->spinOffset += 360.f * dt;
 
         if (m_iconSprite) {
-            m_iconSprite->setRotation(self->spin);
-        }
-
-        if (m_iconSpriteSecondary) {
-            m_iconSpriteSecondary->setRotation(self->spin);
-        }
-
-        if (m_iconGlow) {
-            m_iconGlow->setRotation(self->spin);
+            m_iconSprite->setRotation(
+                m_iconSprite->getRotation() + m_fields->spinOffset
+            );
         }
     }
 };
