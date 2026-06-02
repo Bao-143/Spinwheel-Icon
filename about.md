@@ -1,3 +1,3 @@
-# Template Mod
+# Spinwheel Icon
 
-Edit about.md to change this
+Let you spin nonstop!
