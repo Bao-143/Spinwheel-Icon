@@ -1,21 +1,29 @@
 #include <Geode/Geode.hpp>
-#include <Geode/modify/GJBaseGameLayer.hpp>
+#include <Geode/modify/PlayerObject.hpp>
 
 using namespace geode::prelude;
 
-class $modify(SpinPlayer, GJBaseGameLayer) {
-    void processCommands(float dt) {
-        GJBaseGameLayer::processCommands(dt);
+class $modify(SpinPlayer, PlayerObject) {
+    struct Fields {
+        float spin = 0.f;
+    };
 
-        auto player1 = m_player1;
-        auto player2 = m_player2;
+    void update(float dt) {
+        PlayerObject::update(dt);
 
-        if (player1) {
-            player1->setRotation(player1->getRotation() + 360.f * dt);
+        auto& self = m_fields;
+        self->spin += 360.f * dt;
+
+        if (m_iconSprite) {
+            m_iconSprite->setRotation(self->spin);
         }
 
-        if (player2) {
-            player2->setRotation(player2->getRotation() + 360.f * dt);
+        if (m_iconSpriteSecondary) {
+            m_iconSpriteSecondary->setRotation(self->spin);
+        }
+
+        if (m_iconGlow) {
+            m_iconGlow->setRotation(self->spin);
         }
     }
 };
