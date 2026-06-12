@@ -1,9 +1,10 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayerObject.hpp>
+#include <Geode/loader/SettingV3.hpp>
 
 using namespace geode::prelude;
 
-class $modify(PlayerObject) {
+class $modify(SpinPlayer, PlayerObject) {
     struct Fields {
         float spinOffset = 0.f;
     };
