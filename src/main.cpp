@@ -3,12 +3,13 @@
 
 using namespace geode::prelude;
 
-class $modify(SpinPlayer, PlayerObject) {
+class $modify(PlayerObject) {
     struct Fields {
         float spinOffset = 0.f;
     };
     void update(float dt) {
         PlayerObject::update(dt);
+        PLayerObject::init(player, ship, gameLayer, layer, playLayer)
         m_fields->spinOffset += 360.f * dt;
         if (m_iconSprite) {
             m_iconSprite->setRotation(
