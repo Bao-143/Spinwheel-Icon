@@ -6,12 +6,28 @@
 		"mac": "2.2081",
 		"ios": "2.2081"
 	},
+	"early-load": true,
 	"id": "bao143_spinicon",
 	"name": "Spinwheel Icon!",
 	"version": "1.0.0",
 	"developer": "Bao143",
-	"description": "This mod let your icon spin non-stop!(Visual)",
+	"description": "This mod let your icon spin non-stop!(Visual)360 degree/sec",
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
-	}
+	},
+	"settings": {
+		    "slider": {
+            "name": "Rotation/Sec",
+            "type": "float",
+            "default": 0,
+            "min": -360,
+            "max": 360,
+            "control": {
+                "slider": true
+            }
+        }
+	},
+		"tags": [
+		"joke"
+	]
 }
